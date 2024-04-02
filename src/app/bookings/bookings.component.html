@@ -1,0 +1,30 @@
+<h4>Booking list</h4>
+<div class="container p-2 shadow-sm">
+    <button type="button" class="btn btn-secondary my-2" routerLink="/create-booking">Create Booking</button>
+    <table class="table table-bordered border-primary">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">source</th>
+                <th scope="col">destination</th>
+                <th scope="col">date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of bookinglist;let i=index">
+                <td>
+                    <a class="mx-1" [routerLink]="['/edit-booking',item.id]" [queryParams]="{edit:true}">Edit</a>
+                    <a class="mx-1" (click)="deleteRecord(item.id,i)">Delete</a>
+                </td>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.source}}</td>
+                <td>{{item.destination}}</td>
+                <td>{{item.date}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
